@@ -1,0 +1,23 @@
+{
+  "name": "brianbrennancom",
+  "version": "0.0.1",
+  "description": "Personal Website for Portfolio and Blog",
+  "main": "server.ts",
+  "scripts": {
+    "test": "test",
+    "compileBlog": "itsablog"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianbrennan/brianbrennancom.git"
+  },
+  "author": "Brian Brennan",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/brianbrennan/brianbrennancom/issues"
+  },
+  "homepage": "https://github.com/brianbrennan/brianbrennancom#readme",
+  "devDependencies": {
+    "itsablog": "2.0.2"
+  }
+}
