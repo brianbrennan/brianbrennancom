@@ -7,7 +7,7 @@
     "test": "test",
     "compileBlog": "itsablog",
     "build": "webpack",
-    "serve": "webpack serve"
+    "dev": "webpack serve"
   },
   "repository": {
     "type": "git",

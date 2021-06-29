@@ -17,9 +17,14 @@ module.exports = {
     output: {
         filename: 'app.min.js',
         path: path.resolve(__dirname, 'dist'),
+        publicPath: "dist"
     },
     devServer: {
         contentBase: path.join(__dirname, '/'),
-        port: 9000,
+        port: 3000,
+        historyApiFallback: true,
+        watchOptions: {
+            poll: true
+        }
     }
 };
