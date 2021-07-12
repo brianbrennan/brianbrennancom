@@ -1,6 +1,7 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 
-import MainHeader from './main/MainHeader';
+import MainHeader from './MainHeader';
 
 export default class Main extends React.Component {
     render() {
@@ -12,3 +13,5 @@ export default class Main extends React.Component {
         );
     }
 }
+
+ReactDOM.render(<Main/>, document.getElementById('app'));
