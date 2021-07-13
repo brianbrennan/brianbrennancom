@@ -1,0 +1,49 @@
+/**************************************************\
+	Global Styles
+\**************************************************/
+
+/*
+ *	Imports
+ */
+
+@import './../../lib/typeset.css';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;900&display=swap');
+
+/*
+ *	Variables
+ */
+
+$black: #311D3F;
+$grey: #355C7D;
+$lightGrey: #6C5B7B;
+$midPink: #6C5B7B;
+$pink: #F67280;
+$darkRed: #522546;
+$midRed: #88304E;
+$red: #E23E57;
+
+$bodyFont: 'Nunito', sans-serif;
+
+/*
+ *	Global Styles
+ */
+
+* {
+	font-family: $bodyFont;
+	color: black;
+}
+
+/*
+ *	Mixins
+ */
+
+@mixin accentType($fontSize: 16px) {
+	font-family: $bodyFont;
+	font-size: $fontSize;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	color: $black;
+	line-height: 1.1;
+}
+
+

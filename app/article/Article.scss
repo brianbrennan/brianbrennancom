@@ -1,0 +1,10 @@
+@import './../main/styles';
+
+.bb-article	{
+	width: 540px;
+
+	.bb-article-accent {
+		width: 100px;
+		@include accentType();
+	}
+}
