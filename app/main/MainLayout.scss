@@ -1,0 +1,9 @@
+@import './styles';
+
+.bb-mainLayout {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+	overflow: hidden;
+}
