@@ -1,0 +1,47 @@
+@import '../main/styles';
+
+$z-footer-level-1: 7;
+$z-footer-level-2: 8;
+$z-footer-level-3: 9;
+$z-footer-level-4: 10;
+
+
+.bb-landing-stripe {
+	position: relative;
+	margin-top: 50px;
+	flex-grow: 1;
+	padding-top: 130px;
+	background-color: $offWhite;
+
+	.bb-landing-stripe-level1, .bb-landing-stripe-level2, .bb-landing-stripe-level3, .bb-landing-stripe-level4 {
+		height: 180px;
+		width: 100vw;
+		position: absolute;
+		left: 0;
+		transform: skew(45deg) rotate(70deg);
+	}
+
+	.bb-landing-stripe-level1 {
+		background-color: $pink;
+		z-index: $z-footer-level-1;
+		top: 0;
+	}
+
+	.bb-landing-stripe-level2 {
+		background-color: $black;
+		z-index: $z-footer-level-2;
+		top: 120px;
+	}
+
+	.bb-landing-stripe-level3 {
+		background-color: $midPink;
+		z-index: $z-footer-level-3;
+		top: 240px;
+	}
+
+	.bb-landing-stripe-level4 {
+		background-color: $green;
+		z-index: $z-footer-level-4;
+		top: 360px;
+	}
+}

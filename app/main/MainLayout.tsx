@@ -8,6 +8,7 @@ export default class MainLayout extends React.Component {
     render() {
         return (
             <div className="bb-mainLayout">
+                {this.props.children}
                 <MainFooter/>
             </div>
         )
