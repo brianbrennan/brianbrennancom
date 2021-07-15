@@ -1,9 +1,47 @@
 @import './styles';
 
+$z-footer-level-1: 7;
+$z-footer-level-2: 8;
+$z-footer-level-3: 9;
+$z-footer-level-4: 10;
+
+
 .bb-mainFooter {
 	position: relative;
-	background-color: $pink;
 	margin-top: 50px;
 	flex-grow: 1;
 	padding-top: 130px;
+	background-color: $offWhite;
+
+	.bb-mainFooter-level1, .bb-mainFooter-level2, .bb-mainFooter-level3, .bb-mainFooter-level4 {
+		height: 180px;
+		width: 100vw;
+		position: absolute;
+		left: 0;
+		transform: skew(45deg) rotate(70deg);
+	}
+
+	.bb-mainFooter-level1 {
+		background-color: $pink;
+		z-index: $z-footer-level-1;
+		top: 0;
+	}
+
+	.bb-mainFooter-level2 {
+		background-color: $black;
+		z-index: $z-footer-level-2;
+		top: 120px;
+	}
+
+	.bb-mainFooter-level3 {
+		background-color: $midPink;
+		z-index: $z-footer-level-3;
+		top: 240px;
+	}
+
+	.bb-mainFooter-level4 {
+		background-color: $green;
+		z-index: $z-footer-level-4;
+		top: 360px;
+	}
 }
