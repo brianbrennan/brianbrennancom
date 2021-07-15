@@ -1,18 +1,23 @@
-/**************************************************\
+/*------------------------------*\
 	Global Styles
-\**************************************************/
+\*------------------------------*/
 
-/*
- *	Imports
- */
+/*------------------------------*\
+	Imports
+\*------------------------------*/
 
-@import './../../lib/typeset.css';
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family='+
+'Montserrat:wght@900&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&display=swap');
+/*------------------------------*\
+	Type Treatments
+\*------------------------------*/
 
-/*
- *	Variables
- */
+$mainFont: 'Source Serif Pro', serif;
+$headlineFont: 'Montserrat', san-serif;
 
+/*------------------------------*\
+	Colors
+\*------------------------------*/
 $black: #311D3F;
 $grey: #355C7D;
 $lightGrey: #6C5B7B;
@@ -21,29 +26,99 @@ $pink: #F67280;
 $darkRed: #522546;
 $midRed: #88304E;
 $red: #E23E57;
+$offWhite: #F2EDD7;
 
-$bodyFont: 'Nunito', sans-serif;
+/*------------------------------*\
+	Screen Sizes
+\*------------------------------*/
 
-/*
- *	Global Styles
- */
+$mobileScreen: 900px;
 
-* {
-	font-family: $bodyFont;
-	color: black;
-}
+/*------------------------------*\
+	Z-indices
+\*------------------------------*/
 
-/*
- *	Mixins
- */
+$searchResultsZIndex: 8;
+$mobileNavOverlayZIndex: 12;
+$mobileNavToggleZIndex: 13;
 
-@mixin accentType($fontSize: 16px) {
-	font-family: $bodyFont;
+/*------------------------------*\
+	Mixins
+\*------------------------------*/
+
+@mixin bodyCopy($fontSize: 22px) {
+	font-family: $mainFont;
 	font-size: $fontSize;
-	text-transform: uppercase;
-	letter-spacing: 0.15em;
+	line-height: 1.5;
 	color: $black;
-	line-height: 1.1;
 }
 
+@mixin headlineCopy($fontSize: 32px) {
+	font-family: $headlineFont;
+	font-size: $fontSize;
+	line-height: 1;
+	color: $black;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: .04em;
+}
 
+@mixin heavyLink($fontSize: 16px) {
+	font-family: $headlineFont;
+	font-size: $fontSize;
+	line-height: 1;
+	color: $black;
+	font-weight: 900;
+}
+
+/*------------------------------*\
+	Page Wrappers
+\*------------------------------*/
+
+.bb-thinWrapper {
+	max-width: 768px;
+	margin: auto;
+}
+
+.bb-mediumWrapper {
+	max-width: 960px;
+	margin: auto;
+}
+
+.bb-wideWrapper {
+	max-width: 1260px;
+	margin: auto;
+}
+
+/*------------------------------*\
+	Generic Type Styles
+\*------------------------------*/
+
+html, body {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: $offWhite;
+}
+
+h1 {
+	@include headlineCopy(60px);
+}
+
+h3 {
+	@include headlineCopy(30px);
+}
+
+p {
+	@include bodyCopy(18px);
+}
+
+pre {
+
+}
+
+code {
+	border-radius: 5px;
+}
