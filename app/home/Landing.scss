@@ -1,17 +1,24 @@
 @import '../main/styles';
 
-$z-footer-level-1: 7;
-$z-footer-level-2: 8;
-$z-footer-level-3: 9;
-$z-footer-level-4: 10;
+$z-footer-level-1: $z-landingStripe + 1;
+$z-footer-level-2: $z-landingStripe + 2;
+$z-footer-level-3: $z-landingStripe + 3;
+$z-footer-level-4: $z-landingStripe + 4;
+
+.bb-landing {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+}
 
 
 .bb-landing-stripe {
-	position: relative;
+	position: absolute;
 	margin-top: 50px;
 	flex-grow: 1;
 	padding-top: 130px;
 	background-color: $offWhite;
+	z-index: $z-landingStripe;
 
 	.bb-landing-stripe-level1, .bb-landing-stripe-level2, .bb-landing-stripe-level3, .bb-landing-stripe-level4 {
 		height: 180px;
@@ -43,5 +50,24 @@ $z-footer-level-4: 10;
 		background-color: $green;
 		z-index: $z-footer-level-4;
 		top: 360px;
+	}
+}
+
+.bb-landing-title {
+	position: absolute;
+	z-index: $z-landingStripe + 5;
+	top: 160px;
+
+	h3 {
+		font-size: 180px;
+		line-height: 0.8;
+		color: $black;
+		margin: 0;
+	}
+
+	h1 {
+		margin: 15px 0 0 8px;
+		line-height: 0.8;
+		color: $pink
 	}
 }

@@ -12,7 +12,10 @@ export default class Landing extends React.Component {
                     <div className="bb-landing-stripe-level3"/>
                     <div className="bb-landing-stripe-level4"/>
                 </div>
-
+                <div className="bb-landing-title">
+                    <h3>Brian <br/>Brennan</h3>
+                    <h1>Web Developer</h1>
+                </div>
             </div>
         );
     }
