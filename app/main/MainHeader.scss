@@ -1,0 +1,24 @@
+@import './styles';
+
+.bb-mainHeader {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	width: 960px;
+
+	.bb-mainHeader-nav {
+
+		ul {
+			padding: 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			flex-grow: 1;
+		}
+
+		li {
+			list-style: none;
+			margin: 0 0 0 60px;
+		}
+	}
+}
