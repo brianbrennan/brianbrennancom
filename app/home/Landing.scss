@@ -4,6 +4,7 @@ $z-footer-level-1: $z-landingStripe + 1;
 $z-footer-level-2: $z-landingStripe + 2;
 $z-footer-level-3: $z-landingStripe + 3;
 $z-footer-level-4: $z-landingStripe + 4;
+$breaking-width: 560px;
 
 .bb-landing {
 	width: 100vw;
@@ -56,18 +57,28 @@ $z-footer-level-4: $z-landingStripe + 4;
 .bb-landing-title {
 	position: absolute;
 	z-index: $z-landingStripe + 5;
-	top: 160px;
+	bottom: 140px;
+	margin: 20px;
 
 	h3 {
-		font-size: 180px;
+		font-size: 60px;
 		line-height: 0.8;
 		color: $black;
 		margin: 0;
+
+		@media screen and (min-width: $breaking-width) {
+			font-size: 80px;
+		}
 	}
 
 	h1 {
-		margin: 15px 0 0 8px;
+		margin: 5px 0 0 5px;
+		font-size: 28px;
 		line-height: 0.8;
-		color: $pink
+		color: $pink;
+
+		@media screen and (min-width: $breaking-width) {
+			font-size: 30px;
+		}
 	}
 }

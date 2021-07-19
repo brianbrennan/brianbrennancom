@@ -13,6 +13,6 @@ export default class MainLayout extends React.Component {
                 {this.props.children}
                 <MainFooter/>
             </div>
-        )
+        );
     }
 }
