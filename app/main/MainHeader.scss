@@ -1,12 +1,25 @@
 @import './styles';
 
 .bb-mainHeader {
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
-	width: 960px;
+
+	.bb-mainHeader-flex {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
 
 	.bb-mainHeader-nav {
+		font-family: $headlineFont;
+		font-weight: 600;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover {
+				color: $pink;
+			}
+		}
 
 		ul {
 			padding: 0;

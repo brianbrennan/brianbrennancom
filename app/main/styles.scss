@@ -7,13 +7,15 @@
 \*------------------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family='+
-'Montserrat:wght@900&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&display=swap');
+'Montserrat:wght@400;600;900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700' +
+'&family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
 /*------------------------------*\
 	Type Treatments
 \*------------------------------*/
 
-$mainFont: 'Source Serif Pro', serif;
+$mainFont: 'PT Serif', serif;
 $headlineFont: 'Montserrat', san-serif;
+$codeFont: 'Inconsolata', monospace;
 
 /*------------------------------*\
 	Colors
@@ -27,6 +29,7 @@ $midRed: #88304E;
 $red: #E23E57;
 $offWhite: #F2EDD7;
 $green: #A6F0C6;
+$blue: #7DEDFF;
 
 /*------------------------------*\
 	Screen Sizes
@@ -75,17 +78,17 @@ $z-landingStripe: 5;
 
 .bb-thinWrapper {
 	max-width: 768px;
-	margin: auto;
+	margin: 0 auto;
 }
 
 .bb-mediumWrapper {
 	max-width: 960px;
-	margin: auto;
+	margin: 0 auto;
 }
 
 .bb-wideWrapper {
 	max-width: 1260px;
-	margin: auto;
+	margin: 0 auto;
 }
 
 /*------------------------------*\
@@ -114,5 +117,6 @@ p {
 }
 
 code {
+	font-family: $codeFont;
 	border-radius: 5px;
 }
