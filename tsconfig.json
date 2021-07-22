@@ -7,7 +7,8 @@
     "jsx": "react",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "types": ["app/types"]
+    "types": ["app/types"],
+    "resolveJsonModule": true
   },
   "mode": "development"
 }

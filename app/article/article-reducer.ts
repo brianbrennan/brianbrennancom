@@ -22,7 +22,27 @@ const articleReducer = (state: ArticleReducerState = InitArticleReducerState, ac
 };
 
 const handleLoadArticleSuccess = (state: ArticleReducerState, action: LoadArticleSuccess): ArticleReducerState => {
-    return state;
+    let newState = {
+            ...state,
+            articlesById: {
+                ...state.articlesById,
+                [action.s]: action.post
+            }
+        },
+        isDupe = false;
+
+    newState.list.forEach((post, index) => {
+        if (post.slug && post.slug.current === action.postSlug) {
+            newState.list[index] = action.post;
+            isDupe = true;
+        }
+    });
+
+    if (!isDupe) {
+        newState.list.push(action.post);
+    }
+
+    return newState;
 };
 
 export default articleReducer;
