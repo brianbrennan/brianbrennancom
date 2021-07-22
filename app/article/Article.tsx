@@ -28,12 +28,18 @@ class Article extends React.Component<OwnProps & MappedProps & DispatchProps> {
         if (this.props.article) {
             return (
                 <div className="bb-article-wrapper">
+
                     <article className="bb-article">
-                        <h1 className="bb-article-title">
-                            {this.props.article.meta.title}
-                        </h1>
-                        <section className="bb-article-body" dangerouslySetInnerHTML={{__html: this.props.article.content}}/>
+                        <div className="bb-mediumWrapper">
+                            <h1 className="bb-article-title">
+                                {this.props.article.meta.title}
+                            </h1>
+                        </div>
+                        <div className="bb-thinWrapper">
+                            <section className="bb-article-body" dangerouslySetInnerHTML={{__html: this.props.article.content}}/>
+                        </div>
                     </article>
+
                 </div>
             );
         } else {

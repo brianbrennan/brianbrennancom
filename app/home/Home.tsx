@@ -9,6 +9,7 @@ export default class Home extends React.Component {
         return(
             <div className="bb-home">
                 <Landing/>
+
             </div>
         );
     }

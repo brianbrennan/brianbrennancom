@@ -50,7 +50,7 @@ $z-landingStripe: 5;
 @mixin bodyCopy($fontSize: 22px) {
 	font-family: $mainFont;
 	font-size: $fontSize;
-	line-height: 1.5;
+	line-height: 1.7;
 	color: $black;
 }
 
@@ -108,12 +108,16 @@ h1 {
 	@include headlineCopy(60px);
 }
 
+h2 {
+	@include headlineCopy(30px);
+}
+
 h3 {
 	@include headlineCopy(30px);
 }
 
 p {
-	@include bodyCopy(18px);
+	@include bodyCopy(19px);
 }
 
 code {
