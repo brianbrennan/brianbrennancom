@@ -25,17 +25,29 @@ class Article extends React.Component<OwnProps & MappedProps & DispatchProps> {
     }
 
     render() {
-        return (
-            <div className="bb-article">
-                {this.props.slug}
-            </div>
-        );
+        if (this.props.article) {
+            return (
+                <div className="bb-article-wrapper">
+                    <article className="bb-article">
+                        <h1 className="bb-article-title">
+                            {this.props.article.meta.title}
+                        </h1>
+                        <section className="bb-article-body" dangerouslySetInnerHTML={{__html: this.props.article.content}}/>
+                    </article>
+                </div>
+            );
+        } else {
+            return null;
+        }
     }
 
     static mapStateToProps(state: AppState, ownProps: OwnProps): MappedProps {
+        const splitLoc = ownProps.location.pathname.split('/');
+        const slug = splitLoc[splitLoc.length - 1];
+
         return {
-            article: state.articles.articlesById[ownProps.location],
-            slug: ownProps.location.pathname
+            article: state.articles.bySlug[slug],
+            slug
         };
     }
 }

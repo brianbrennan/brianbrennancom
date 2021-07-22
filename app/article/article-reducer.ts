@@ -3,13 +3,13 @@ import { ArticleActions, LOAD_ARTICLE_SUCCESS,
             LoadArticleSuccess } from './article-actions';
 
 export type ArticleReducerState = {
-    articles: BBArticle[],
-    articlesById: BBArticleMap
+    list: BBArticle[],
+    bySlug: BBArticleMap
 };
 
 const InitArticleReducerState: ArticleReducerState = {
-    articles: [],
-    articlesById: {}
+    list: [],
+    bySlug: {}
 };
 
 const articleReducer = (state: ArticleReducerState = InitArticleReducerState, action: ArticleActions): ArticleReducerState => {
@@ -24,22 +24,22 @@ const articleReducer = (state: ArticleReducerState = InitArticleReducerState, ac
 const handleLoadArticleSuccess = (state: ArticleReducerState, action: LoadArticleSuccess): ArticleReducerState => {
     let newState = {
             ...state,
-            articlesById: {
-                ...state.articlesById,
-                [action.s]: action.post
+            bySlug: {
+                ...state.bySlug,
+                [action.slug]: action.article
             }
         },
         isDupe = false;
 
-    newState.list.forEach((post, index) => {
-        if (post.slug && post.slug.current === action.postSlug) {
-            newState.list[index] = action.post;
+    newState.list.forEach((article, index) => {
+        if (article.meta.slug && article.meta.slug === action.slug) {
+            newState.list[index] = action.article;
             isDupe = true;
         }
     });
 
     if (!isDupe) {
-        newState.list.push(action.post);
+        newState.list.push(action.article);
     }
 
     return newState;

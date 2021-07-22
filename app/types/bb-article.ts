@@ -18,12 +18,13 @@ export type BBArticle = {
         lastEdited: Moment,
         tags: string[],
         title: string,
-        publishDate: Moment
+        publishDate: Moment,
+        slug: string
     }
 };
 
 export type BBArticleRawMap = {
-    [key: string]: BBArticle
+    [key: string]: BBArticleRaw
 };
 
 export type BBArticleMap = {

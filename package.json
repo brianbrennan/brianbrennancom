@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/brianbrennan/brianbrennancom#readme",
   "devDependencies": {
-    "@types/moment": "^2.13.0",
     "@types/react": "17.0.11",
     "@types/react-dom": "17.0.8",
     "@types/react-redux": "^7.1.18",
@@ -41,7 +40,7 @@
   },
   "dependencies": {
     "connected-react-router": "^6.9.1",
-    "moment": "^2.29.1",
+    "moment": "2.29.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-redux": "^7.2.4",

@@ -42,20 +42,21 @@ export const loadArticle = (slug: string) => {
         dispatch(loadArticleInit(slug));
         const rawArticle = (blogRaw as BBArticleRawMap)[slug];
 
-        const blogArticle = treatRawArticle(rawArticle);
+        const blogArticle = treatRawArticle(slug, rawArticle);
 
-        dispatch(loadArticleSuccess(blogArticle));
+        dispatch(loadArticleSuccess(slug, blogArticle));
     };
 };
 
-const treatRawArticle = (rawArticle: BBArticleRaw): BBArticle => {
+const treatRawArticle = (slug: string, rawArticle: BBArticleRaw): BBArticle => {
     return {
         ...rawArticle,
         meta: {
             ...rawArticle.meta,
             creationDate: moment(rawArticle.meta.creationDate),
             lastEdited: moment(rawArticle.meta.lastEdited),
-            publishDate: moment(rawArticle.meta.publishDate)
+            publishDate: moment(rawArticle.meta.publishDate),
+            slug
         }
     };
 };
