@@ -1,4 +1,9 @@
-@import './../main/styles';
+@import '../globals/styles';
 
 .bb-article	{
+
+	// Override of some typeset stuff
+	p .small-caps {
+		font-size: 17px;
+	}
 }

@@ -1,7 +1,10 @@
 let webpack =  require('webpack'),
-    path = require('path');
+    path = require('path'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+    OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const BUILD_DIR = path.resolve(__dirname, './dist');
+const BUILD_DIR = path.resolve(__dirname, './docs');
 const APP_DIR = path.resolve(__dirname, './app');
 
 let config = {
@@ -12,8 +15,18 @@ let config = {
     output: {
         path: BUILD_DIR,
         filename: 'app.min.js',
-        publicPath: '/dist/'
+        publicPath: '/docs/'
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'app.min.css',
+        }),
+        new OptimizeCssAssetsPlugin(), // if you put it in optimization.minimizer property, webpack-dev-server won't apply it.
+        new HtmlWebpackPlugin({
+            filename: 'index.html', // relative to output.filename
+            template: 'index.html'
+        })
+    ],
     module: {
         rules: [
             {
@@ -26,11 +39,20 @@ let config = {
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'resolve-url-loader',
+                    'sass-loader'
+                ]
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'resolve-url-loader',
+                ]
             },
             // {
             //     test: /\.png$/,
@@ -68,8 +90,9 @@ let config = {
     devServer: {
         port: 3000,
         // necessary for server to return index.html for any route
+        contentBase: path.join(__dirname, 'docs'),
         historyApiFallback: {
-            index: 'index.html'
+            index: path.join(__dirname, 'docs'),
         },
         disableHostCheck: true
     }

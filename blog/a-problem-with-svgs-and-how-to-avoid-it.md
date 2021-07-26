@@ -1,12 +1,10 @@
-<!--
 <meta>
     {
         "tags": ["SVG"],
         "title": "A Problem with SVGs and How to Avoid It",
         "publishDate": "2017-03-18T00:00:00-05:00"
     }
-</meta> 
--->
+</meta>
 
 I found an interesting bug while trying to find an easy to use SVG solution alternatives at work. I'd like to take you on the trip I went on while trying to solve a problem, in order to get the full scope of this super niche issue.
 
