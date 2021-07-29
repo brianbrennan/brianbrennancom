@@ -6,6 +6,7 @@ import blogRaw from './../../blog.json';
 export const LOAD_ARTICLE_INIT = 'LOAD_ARTICLE_INIT';
 export const LOAD_ARTICLE_SUCCESS = 'LOAD_ARTICLE_SUCCESS';
 export const LOAD_ARTICLE_FAIL = 'LOAD_ARTICLE_FAIL';
+export const LOAD_ARTICLES_INIT = 'LOAD_ARTICLES_INIT';
 
 export type LoadArticleInit = {
     type: string,
@@ -33,7 +34,29 @@ export const loadArticleSuccess = (slug: string, article: BBArticle): LoadArticl
     };
 };
 
-export type ArticleActions = LoadArticleInit | LoadArticleSuccess;
+export type LoadArticlesInit = {
+    type: string
+};
+
+export const loadArticlesInit = (): LoadArticlesInit => {
+    return {
+        type: LOAD_ARTICLES_INIT
+    };
+};
+
+export type LoadArticlesSuccess = {
+    rawArticles: BBArticleRawMap
+};
+
+export const loadArticlesSuccess = (rawArticles: BBArticleRawMap): LoadArticlesSuccess => {
+    return {
+        rawArticles
+    };
+};
+
+
+export type ArticleActions = LoadArticleInit | LoadArticleSuccess |
+    LoadArticlesInit | LoadArticlesSuccess;
 
 /** Dispatched Actions */
 

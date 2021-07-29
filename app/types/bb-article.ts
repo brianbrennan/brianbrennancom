@@ -30,3 +30,5 @@ export type BBArticleRawMap = {
 export type BBArticleMap = {
     [key: string]: BBArticle
 };
+
+export type BBArticlePreview = BBArticle['meta'];
