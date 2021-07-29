@@ -1,5 +1,16 @@
 @import './../styles';
 
 .bb-articlePreview {
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
 
+	a:hover .bb-articlePreview-title {
+		color: $pink
+	}
+
+	.bb-articlePreview-title {
+		@include headlineCopy(22px);
+	}
 }

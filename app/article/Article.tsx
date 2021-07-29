@@ -3,6 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 
 import './Article.scss';
+import './../../lib/typeset.css';
 
 import { BBArticle } from '../types/bb-article';
 import { loadArticle } from './article-actions';

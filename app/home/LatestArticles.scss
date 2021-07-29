@@ -1,5 +1,13 @@
 @import '../globals/styles';
 
 .bb-latestArticles {
+	.bb-latestArticles-title {
+		font-weight: 600;
+		text-transform: none;
+		font-size: 22px;
+	}
 
+	.bb-articlePreview {
+		width: 33%;
+	}
 }

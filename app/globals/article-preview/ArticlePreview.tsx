@@ -19,7 +19,9 @@ class ArticlePreview extends React.Component<OwnProps & MappedProps> {
         if (this.props.article) {
             return (
                 <div className="bb-articlePreview">
-                    {this.props.article.meta.title}
+                    <a href={`/a/${this.props.article.meta.slug}`}>
+                        <p className="bb-articlePreview-title">{this.props.article.meta.title}</p>
+                    </a>
                 </div>
             );
         } else {

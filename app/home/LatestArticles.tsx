@@ -31,13 +31,15 @@ class LatestArticles extends React.Component<MappedProps & DispatchProps> {
             const articlePreviewElems = this.props.articles
                 .map((article: BBArticle, index: number) =>
                     <ArticlePreview key={`bb-articlePreview-${index}`}
-                        slug={article.meta.slug}/>
+                                    slug={article.meta.slug}/>
                 );
 
             return (
                 <div className="bb-latestArticles">
-                    <h3>Recent Articles</h3>
-                    {articlePreviewElems}
+                    <div className="bb-mediumWrapper">
+                        <h3 className="bb-latestArticles-title">Recent Articles</h3>
+                        {articlePreviewElems}
+                    </div>
                 </div>
             );
         } else {
