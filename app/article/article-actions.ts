@@ -1,12 +1,14 @@
 import moment from 'moment';
 
-import { BBArticle, BBArticleRaw, BBArticleRawMap } from '../types/bb-article';
+import { BBArticle, BBArticleMap, BBArticleRaw, BBArticleRawMap } from '../types/bb-article';
 import blogRaw from './../../blog.json';
 
 export const LOAD_ARTICLE_INIT = 'LOAD_ARTICLE_INIT';
 export const LOAD_ARTICLE_SUCCESS = 'LOAD_ARTICLE_SUCCESS';
 export const LOAD_ARTICLE_FAIL = 'LOAD_ARTICLE_FAIL';
 export const LOAD_ARTICLES_INIT = 'LOAD_ARTICLES_INIT';
+export const LOAD_ARTICLES_SUCCESS = 'LOAD_ARTICLES_SUCCESS';
+export const LOAD_ARTICLES_FAIL = 'LOAD_ARTICLES_FAIL';
 
 export type LoadArticleInit = {
     type: string,
@@ -45,12 +47,14 @@ export const loadArticlesInit = (): LoadArticlesInit => {
 };
 
 export type LoadArticlesSuccess = {
-    rawArticles: BBArticleRawMap
+    type: string,
+    articles: BBArticleMap
 };
 
-export const loadArticlesSuccess = (rawArticles: BBArticleRawMap): LoadArticlesSuccess => {
+export const loadArticlesSuccess = (articles: BBArticleMap): LoadArticlesSuccess => {
     return {
-        rawArticles
+        type: LOAD_ARTICLES_SUCCESS,
+        articles
     };
 };
 
@@ -68,6 +72,19 @@ export const loadArticle = (slug: string) => {
         const blogArticle = treatRawArticle(slug, rawArticle);
 
         dispatch(loadArticleSuccess(slug, blogArticle));
+    };
+};
+
+export const loadArticles = () => {
+    return (dispatch: Function) => {
+        dispatch(loadArticlesInit());
+        const rawArticles = (blogRaw as BBArticleRawMap);
+        let treatedArticlesMap: BBArticleMap = {};
+        Object.keys(rawArticles).forEach(key => {
+            treatedArticlesMap[key] = treatRawArticle(key, rawArticles[key]);
+        });
+
+        dispatch(loadArticlesSuccess(treatedArticlesMap));
     };
 };
 

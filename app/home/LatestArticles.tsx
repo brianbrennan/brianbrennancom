@@ -1,27 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import './LatestArticle.scss';
+import './LatestArticles.scss';
 
 import { BBArticle } from '../types/bb-article';
-import globalConfig from '../globals/config';
+import { loadArticles } from '../article/article-actions';
 import ArticlePreview from '../globals/article-preview/ArticlePreview';
 import { AppState } from '../types/app-state';
+import { selectArticlesByDate } from '../article/article-reducer';
+
+type OwnProps = {
+    numOfArticlePreviews: number
+};
 
 type MappedProps = {
     articles: BBArticle[];
 };
 
 type DispatchProps = {
-
+    loadArticles: typeof loadArticles
 };
 
-class LatestArticles extends React.Component<MappedProps> {
-    private numOfArticlePreviews: number = globalConfig.home.numOfArticlePreviews;
+class LatestArticles extends React.Component<MappedProps & DispatchProps> {
+    componentDidMount() {
+        this.props.loadArticles();
+    }
 
     render() {
         if (this.props.articles && this.props.articles.length) {
-            const articlePreviewElems = this.props.articles.slice(0, this.numOfArticlePreviews - 1)
+            const articlePreviewElems = this.props.articles
                 .map((article: BBArticle, index: number) =>
                     <ArticlePreview key={`bb-articlePreview-${index}`}
                         slug={article.meta.slug}/>
@@ -38,15 +45,15 @@ class LatestArticles extends React.Component<MappedProps> {
         }
     }
 
-    static mapStateToProps(state: AppState): MappedProps {
+    static mapStateToProps(state: AppState, ownProps: OwnProps): MappedProps {
         return {
-            articles: state.articles.list
+            articles: selectArticlesByDate(state).slice(0, ownProps.numOfArticlePreviews - 1)
         };
     }
 }
 
 const dispatchProps: DispatchProps = {
-
+    loadArticles
 };
 
 export default connect(LatestArticles.mapStateToProps, dispatchProps)(LatestArticles);

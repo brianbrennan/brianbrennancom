@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import 'ArticlePreview.scss';
+import './ArticlePreview.scss';
 
 import { BBArticle } from '../../types/bb-article';
 import { AppState } from '../../types/app-state';
