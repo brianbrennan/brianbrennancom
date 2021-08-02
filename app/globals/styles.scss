@@ -66,12 +66,13 @@ $z-landingStripe: 5;
 	letter-spacing: .04em;
 }
 
-@mixin heavyLink($fontSize: 16px) {
+@mixin accentCopy($fontSize: 22px) {
 	font-family: $headlineFont;
+	font-weight: 600;
 	font-size: $fontSize;
-	line-height: 1;
+	line-height: 1.7;
 	color: $black;
-	font-weight: 900;
+	text-transform: none;
 }
 
 /*------------------------------*\

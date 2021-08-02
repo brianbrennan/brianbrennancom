@@ -1,9 +1,11 @@
 import React from 'react';
+import moment from 'moment';
 import { connect } from 'react-redux';
 
 import './ArticlePreview.scss';
 
 import { BBArticle } from '../../types/bb-article';
+import globalConfig from '../../globals/config';
 import { AppState } from '../../types/app-state';
 
 type OwnProps = {
@@ -21,6 +23,9 @@ class ArticlePreview extends React.Component<OwnProps & MappedProps> {
                 <div className="bb-articlePreview">
                     <a href={`/a/${this.props.article.meta.slug}`}>
                         <p className="bb-articlePreview-title">{this.props.article.meta.title}</p>
+                        <p className="bb-articlePreview-publishDate">
+                            {moment(this.props.article.meta.publishDate).format(globalConfig.helpers.dateFormat)}
+                        </p>
                     </a>
                 </div>
             );

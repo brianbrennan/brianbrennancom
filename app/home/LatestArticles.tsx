@@ -38,7 +38,9 @@ class LatestArticles extends React.Component<MappedProps & DispatchProps> {
                 <div className="bb-latestArticles">
                     <div className="bb-mediumWrapper">
                         <h3 className="bb-latestArticles-title">Recent Articles</h3>
-                        {articlePreviewElems}
+                        <div className="bb-latestArticles-articlePreviews">
+                            {articlePreviewElems}
+                        </div>
                     </div>
                 </div>
             );

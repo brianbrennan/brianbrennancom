@@ -1,13 +1,22 @@
 @import '../globals/styles';
 
 .bb-latestArticles {
+	margin-bottom: 45px;
+
 	.bb-latestArticles-title {
-		font-weight: 600;
-		text-transform: none;
-		font-size: 22px;
+		@include accentCopy(18px);
+		text-align: center;
+		margin-bottom: 8px;
+	}
+
+	.bb-latestArticles-articlePreviews {
+		display: flex;
+		flex-direction: row;
 	}
 
 	.bb-articlePreview {
+		order: 1;
 		width: 33%;
+		text-align: left;
 	}
 }

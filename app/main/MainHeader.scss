@@ -8,9 +8,25 @@
 		justify-content: space-between;
 	}
 
+	.bb-mainHeader-logo {
+		@include headlineCopy(18px);
+		color: $black;
+		width: 100px;
+		vertical-align:baseline;
+		margin-top: 15px;
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		&:hover {
+			color: $pink;
+		}
+	}
+
 	.bb-mainHeader-nav {
-		font-family: $headlineFont;
-		font-weight: 600;
+		@include accentCopy(16px);
 
 		a {
 			color: inherit;

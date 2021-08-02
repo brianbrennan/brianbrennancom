@@ -1,16 +1,28 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './MainHeader.scss';
+import { AppState } from '../types/app-state';
 
-export default class MainHeader extends React.Component {
+type MappedProps = {
+    shouldShowLogo: boolean
+};
+
+class MainHeader extends React.Component<MappedProps> {
     render() {
         return (
             <div className="bb-mainHeader">
                 <div className="bb-mediumWrapper">
                     <div className="bb-mainHeader-flex">
+
                         <div className="bb-mainHeader-logo">
-                            Brian Brennan
+                            { this.props.shouldShowLogo &&
+                            <a href="/">
+                                Brian Brennan
+                            </a>
+                            }
                         </div>
+
                         <div className="bb-mainHeader-nav">
                             <ul>
                                 <li>
@@ -29,4 +41,13 @@ export default class MainHeader extends React.Component {
             </div>
         );
     }
+
+    static mapStateToProps(state: AppState): MappedProps {
+        console.log(state.router.location);
+        return {
+            shouldShowLogo: state.router.location.pathname !== '/' // should not show logo on home screen
+        };
+    }
 }
+
+export default connect(MainHeader.mapStateToProps)(MainHeader);

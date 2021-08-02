@@ -12,5 +12,11 @@
 
 	.bb-articlePreview-title {
 		@include headlineCopy(22px);
+		margin-bottom: 0;
+	}
+
+	.bb-articlePreview-publishDate {
+		@include accentCopy(12px);
+		margin: 0;
 	}
 }

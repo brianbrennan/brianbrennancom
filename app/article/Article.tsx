@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
+import moment from 'moment';
 import { connect } from 'react-redux';
 
 import './Article.scss';
@@ -7,6 +8,7 @@ import './../../lib/typeset.css';
 
 import { BBArticle } from '../types/bb-article';
 import { loadArticle } from './article-actions';
+import globalConfig from '../globals/config';
 import { AppState } from '../types/app-state';
 
 type OwnProps = RouteComponentProps;
@@ -32,9 +34,13 @@ class Article extends React.Component<OwnProps & MappedProps & DispatchProps> {
 
                     <article className="bb-article">
                         <div className="bb-mediumWrapper">
+                            <p className="bb-article-publishDate">
+                                {moment(this.props.article.meta.publishDate).format(globalConfig.helpers.dateFormat)}
+                            </p>
                             <h1 className="bb-article-title">
                                 {this.props.article.meta.title}
                             </h1>
+                            {this.renderTags()}
                         </div>
                         <div className="bb-thinWrapper">
                             <section className="bb-article-body" dangerouslySetInnerHTML={{__html: this.props.article.content}}/>
@@ -46,6 +52,20 @@ class Article extends React.Component<OwnProps & MappedProps & DispatchProps> {
         } else {
             return null;
         }
+    }
+
+    renderTags() {
+        const tagElems = this.props.article.meta.tags.map((tag, index) =>
+            <div className="bb-article-tag" key={`bb-articleTag-${index}`}>
+                {tag}
+            </div>
+        );
+
+        return (
+            <div className="bb-article-tags">
+                {tagElems}
+            </div>
+        );
     }
 
     static mapStateToProps(state: AppState, ownProps: OwnProps): MappedProps {
