@@ -14,7 +14,7 @@ let config = {
     output: {
         path: BUILD_DIR,
         filename: 'app.min.js',
-        publicPath: '/docs/'
+        publicPath: '/dist/'
     },
     plugins: [
         new MiniCssExtractPlugin({
