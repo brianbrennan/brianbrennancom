@@ -1,12 +1,21 @@
-import React from 'react';
-import { Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, RouteComponentProps, Switch, withRouter, useLocation } from 'react-router-dom';
 
 import Home from '../home/Home';
 import Article from '../article/Article';
 
+// makes scrolling behavior with hashRouting normalized
+function ScrollToTop(props: any) {
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    return props.children
+}
+
 class RouteConfig extends React.Component<RouteComponentProps> {
     render() {
-        return (
+        return (<ScrollToTop>
             <Switch>
                 <Route
                     exact path="/"
@@ -17,6 +26,7 @@ class RouteConfig extends React.Component<RouteComponentProps> {
                     component={Article}
                 />
             </Switch>
+            </ScrollToTop>
         );
     }
 }
