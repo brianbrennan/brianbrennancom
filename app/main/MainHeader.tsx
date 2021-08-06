@@ -43,7 +43,6 @@ class MainHeader extends React.Component<MappedProps> {
     }
 
     static mapStateToProps(state: AppState): MappedProps {
-        console.log(state.router.location);
         return {
             shouldShowLogo: state.router.location.pathname !== '/' // should not show logo on home screen
         };
