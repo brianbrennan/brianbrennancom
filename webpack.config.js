@@ -24,7 +24,8 @@ let config = {
         new OptimizeCssAssetsPlugin(), // if you put it in optimization.minimizer property, webpack-dev-server won't apply it.
         new HtmlWebpackPlugin({
             filename: 'index.html', // relative to output.filename
-            template: 'index.html'
+            template: 'index.html',
+            publicPath: '.'
         })
     ],
     module: {
