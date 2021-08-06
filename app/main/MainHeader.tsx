@@ -18,7 +18,7 @@ class MainHeader extends React.Component<MappedProps> {
                         <div className="bb-mainHeader-logo">
                             { this.props.shouldShowLogo &&
                             <a href="/">
-                                Brian Brennan
+                                Brian Brennan TEST
                             </a>
                             }
                         </div>
