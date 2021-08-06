@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import moment from 'moment';
+import Highlight from 'react-highlight';
 import { connect } from 'react-redux';
 
 import './Article.scss';
@@ -43,7 +44,9 @@ class Article extends React.Component<OwnProps & MappedProps & DispatchProps> {
                             {this.renderTags()}
                         </div>
                         <div className="bb-thinWrapper">
-                            <section className="bb-article-body" dangerouslySetInnerHTML={{__html: this.props.article.content}}/>
+                            <Highlight className="bb-article-body" innerHTML={true}>
+                                {this.props.article.content}
+                            </Highlight>
                         </div>
                     </article>
 
