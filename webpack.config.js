@@ -25,7 +25,7 @@ let config = {
         new HtmlWebpackPlugin({
             filename: 'index.html', // relative to output.filename
             template: 'index.html',
-            publicPath: '.'
+            publicPath: './'
         })
     ],
     module: {
