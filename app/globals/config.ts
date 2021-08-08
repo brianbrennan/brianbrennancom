@@ -4,6 +4,10 @@ const config = {
     },
     helpers: {
         dateFormat: 'MMM DD, YYYY'
+    },
+    github: {
+        owner: 'brianbrennan',
+        projects: ['itsablog']
     }
 };
 

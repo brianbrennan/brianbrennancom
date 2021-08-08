@@ -10,7 +10,7 @@ type State = {
 };
 
 export default class Landing extends React.Component<any, State> {
-    private SUBTITLES = [
+    private subtitles = [
         'Web Developer',
         'Writer',
         'Musician',
@@ -21,7 +21,7 @@ export default class Landing extends React.Component<any, State> {
         super(props);
 
         this.state = {
-            subtitles: this.SUBTITLES,
+            subtitles: this.subtitles,
             subtitleIndex: 0,
             subtitleTracker: setInterval(() => {
                 this.setState({
