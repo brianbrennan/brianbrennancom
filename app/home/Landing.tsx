@@ -1,8 +1,38 @@
 import React from 'react';
+import TextTransition, { presets } from "react-text-transition";
 
-import './Landing.scss'
+import './Landing.scss';
 
-export default class Landing extends React.Component {
+type State = {
+    subtitles: string[],
+    subtitleIndex: number,
+    subtitleTracker: any
+};
+
+export default class Landing extends React.Component<any, State> {
+    private SUBTITLES = [
+        'Web Developer',
+        'Writer',
+        'Musician',
+        'Aquarist'
+    ];
+
+    constructor(props: any) {
+        super(props);
+
+        this.state = {
+            subtitles: this.SUBTITLES,
+            subtitleIndex: 0,
+            subtitleTracker: setInterval(() => {
+                this.setState({
+                    subtitleIndex: this.state.subtitleIndex + 1
+                });
+            }, 2000)
+        };
+
+
+    }
+
     render() {
         return(
             <div className="bb-landing">
@@ -14,7 +44,12 @@ export default class Landing extends React.Component {
                 </div>
                 <div className="bb-landing-title">
                     <h3>Brian <br/>Brennan</h3>
-                    <h1>Web Developer & Blogger</h1>
+                    <h1>
+                        <TextTransition
+                            text={this.state.subtitles[this.state.subtitleIndex %
+                                  this.state.subtitles.length]}
+                            noOverflow/>
+                    </h1>
                 </div>
             </div>
         );
