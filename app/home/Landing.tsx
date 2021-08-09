@@ -27,7 +27,7 @@ export default class Landing extends React.Component<any, State> {
                 this.setState({
                     subtitleIndex: this.state.subtitleIndex + 1
                 });
-            }, 2000)
+            }, 3000)
         };
 
 

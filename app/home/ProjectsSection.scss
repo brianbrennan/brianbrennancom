@@ -1,9 +1,31 @@
 @import '../globals/styles';
 
 .bb-projectsSection {
+
+	.bb-projectsWrapper {
+		display: flex;
+	}
+
 	.bb-projectsSection-title {
 		@include accentCopy(18px);
 		text-align: center;
 		margin-bottom: 8px;
+	}
+
+	// override styles for 3rd party package
+	.bb-projectCard {
+		div {
+			background-color: $offWhite !important;
+			border-color: $grey !important;
+			color: $grey !important;
+
+			a {
+				color: $grey !important;
+			}
+
+			svg path {
+				fill: $grey;
+			}
+		}
 	}
 }
