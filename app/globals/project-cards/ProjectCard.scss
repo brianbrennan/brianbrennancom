@@ -1,0 +1,21 @@
+@import '../styles';
+
+.bb-projectCard {
+	position: relative;
+
+	img {
+		max-width: 150px;
+		filter: grayscale(100);
+		opacity: 80%;
+		transition: 0.1s;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%) translateX(-50%);
+
+		&:hover {
+			filter: grayscale(0);
+			opacity: 100%;
+		}
+	}
+}

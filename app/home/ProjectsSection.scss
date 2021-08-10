@@ -4,6 +4,7 @@
 
 	.bb-projectsWrapper {
 		display: flex;
+		justify-content: space-between;
 	}
 
 	.bb-projectsSection-title {
@@ -13,19 +14,25 @@
 	}
 
 	// override styles for 3rd party package
-	.bb-projectCard {
+	.bb-repoCard {
+		flex-basis: 30%;
+
 		div {
 			background-color: $offWhite !important;
-			border-color: $grey !important;
-			color: $grey !important;
+			border-color: $black !important;
+			color: $black !important;
 
 			a {
 				color: $grey !important;
 			}
 
 			svg path {
-				fill: $grey;
+				fill: $black;
 			}
 		}
+	}
+
+	.bb-projectCard {
+		flex-basis: 30%;
 	}
 }
