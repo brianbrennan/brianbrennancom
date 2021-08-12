@@ -14,6 +14,7 @@ export default class Landing extends React.Component<any, State> {
         'Web Developer',
         'Writer',
         'Musician',
+        'Baseball Fan',
         'Aquarist'
     ];
 
@@ -27,7 +28,7 @@ export default class Landing extends React.Component<any, State> {
                 this.setState({
                     subtitleIndex: this.state.subtitleIndex + 1
                 });
-            }, 3000)
+            },2500)
         };
 
 
