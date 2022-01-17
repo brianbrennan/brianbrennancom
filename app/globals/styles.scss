@@ -6,14 +6,14 @@
 	Imports
 \*------------------------------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://use.typekit.net/bem3dxf.css');
 /*------------------------------*\
 	Type Treatments
 \*------------------------------*/
 
-$mainFont: 'PT Serif', serif;
-$headlineFont: 'Montserrat', san-serif;
-$codeFont: 'Inconsolata', monospace;
+$mainFont: 'minion-pro', serif;
+$headlineFont: 'futura-pt', san-serif;
+$codeFont: 'source-code', monospace;
 
 /*------------------------------*\
 	Colors
@@ -57,7 +57,7 @@ $z-landingStripe: 5;
 	font-size: $fontSize;
 	line-height: 1;
 	color: $black;
-	font-weight: 900;
+	font-weight: 800;
 	text-transform: uppercase;
 	letter-spacing: .04em;
 }
